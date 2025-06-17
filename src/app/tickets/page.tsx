@@ -19,11 +19,10 @@ const TicketsPage = () => {
             </div>
             <div className="flex-1 flex flex-col items-center gap-y-4">
                 {initialTickets.map((ticket) => (
-                    <div key={ticket.id} className="w-full max-w-[420px]">
+                    <div key={ticket.id} className="w-full max-w-[420px] p-4 border border-slate-100 rounded">
                         <div>{TICKET_ICONS[ticket.status]}</div>
-                        <h3 className="text-lg">{ticket.title}</h3>
-                        <p className="text-sm">{ticket.content}</p>
-
+                        <h3 className="text-lg font-semibold truncate">{ticket.title}</h3>
+                        <p className="text-sm text-slate-500 truncate">{ticket.content + ticket.content + ticket.content + ticket.content}</p>
                         <Link href={ticketPath(ticket.id)} className="text-sm underline">
                             View
                         </Link>
