@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Separator } from "@/components/ui/separator";
 import { initialTickets } from "@/data";
 import { ticketPath } from "@/paths";
+import { LucideCheckCircle, LucideFileText, LucidePencil } from "lucide-react";
 
 const CheckIcon = () => (
     <svg
@@ -56,9 +57,9 @@ const PencilIcon = () => (
 );
 
 const TICKET_ICONS = {
-    OPEN: <DocumentIcon />,
-    IN_PROGRESS: <PencilIcon />,
-    DONE: <CheckIcon />,
+    OPEN: <LucideFileText />,
+    IN_PROGRESS: <LucidePencil />,
+    DONE: <LucideCheckCircle />,
 };
 
 const TicketsPage = () => {
