@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import { LucideArrowUpRightFromSquare, LucideTrash } from "lucide-react";
+import {
+    LucideArrowUpRightFromSquare,
+    LucidePencil,
+    LucideTrash,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +13,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Ticket } from "@/generated/prisma";
-import { ticketPath } from "@/paths";
+import { ticketEditPath, ticketPath } from "@/paths";
 import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 
@@ -33,6 +37,14 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
                 <LucideTrash className="h-4 w-4" />
             </Button>
         </form>
+    );
+
+    const editButton = (
+        <Button variant="outline" size="icon" asChild>
+            <Link prefetch href={ticketEditPath(ticket.id)}>
+                <LucidePencil className="h-4 w-4" />
+            </Link>
+        </Button>
     );
 
     return (
@@ -59,7 +71,17 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
             </Card>
 
             <div className="flex flex-col gap-y-1">
-                {isDetail ? deleteButton : detailButton}
+                {isDetail ? (
+                    <>
+                        {editButton}
+                        {deleteButton}
+                    </>
+                ) : (
+                    <>
+                        {detailButton}
+                        {editButton}
+                    </>
+                )}
             </div>
             {/* {{isDetail ? null : (
                 <div className="flex flex-col gap-y-1">{detailButton}</div>
