@@ -26,7 +26,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
         EMPTY_ACTION_STATE
     );
 
-    const datePickerImperativeHandleRef = useRef<ImperativeHandleFromDatePicker>(null);
+    const datePickerImperativeHandleRef = useRef<ImperativeHandleFromDatePicker>(null!) as React.RefObject<ImperativeHandleFromDatePicker>;
 
     const handleSuccess = () => {
         datePickerImperativeHandleRef.current?.reset();
