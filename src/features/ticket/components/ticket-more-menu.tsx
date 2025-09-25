@@ -26,7 +26,7 @@ const TicketMoreMenu = ({ ticket, trigger }: TicketMoreMenuProps) => {
             <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" side="right">
                 {deleteButton}
-            </DropdownMenuContent>"
+            </DropdownMenuContent>
         </DropdownMenu>
     );
 };

@@ -105,9 +105,6 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
                     </>
                 )}
             </div>
-            {/* {{isDetail ? null : (
-                <div className="flex flex-col gap-y-1">{detailButton}</div>
-            )}} */}
         </div>
     );
 };
