@@ -1,4 +1,4 @@
-import { cloneElement, useState } from "react";
+import { cloneElement, ReactElement,useState } from "react";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -27,9 +27,12 @@ const useConfirmDialog = ({
 }: UseConfirmDialogArgs) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const dialogTrigger = cloneElement(trigger, {
-        onClick: () => setIsOpen((state) => !state),
-    });
+    const dialogTrigger = cloneElement(
+        trigger as ReactElement<{ onClick?: () => void }>,
+        {
+            onClick: () => setIsOpen((state) => !state),
+        }
+    );
 
     const dialog = (
         <AlertDialog open={isOpen}>
