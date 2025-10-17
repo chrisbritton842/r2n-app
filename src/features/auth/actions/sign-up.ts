@@ -1,6 +1,7 @@
 "use server";
 
 import { hash } from "@node-rs/argon2";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -61,6 +62,15 @@ export const signUp = async (_actionState: ActionState, formData: FormData) => {
             sessionCookie.attributes
         );
     } catch (error) {
+        if (
+            error instanceof PrismaClientKnownRequestError &&
+            error.code === "P2002"
+        ) {
+            return toActionState(
+                "ERROR",
+                "A user with this email or username already exists"
+            );
+        }
         return fromErrorToActionState(error);
     }
 
