@@ -6,7 +6,7 @@ import { Form } from "@/components/form/form";
 import { SubmitButton } from "@/components/form/submit-button";
 import { EMPTY_ACTION_STATE } from "@/components/form/utils/to-action-state";
 import { Input } from "@/components/ui/input";
-import { signIn } from "../actions/sign-in";
+import { signIn } from "@/features/auth/actions/sign-in";
 
 const SignInForm = () => {
     const [actionState, action] = useActionState(signIn, EMPTY_ACTION_STATE);
