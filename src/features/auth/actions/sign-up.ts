@@ -68,10 +68,12 @@ export const signUp = async (_actionState: ActionState, formData: FormData) => {
         ) {
             return toActionState(
                 "ERROR",
-                "A user with this email or username already exists"
+                "Either email or ussername is already in use",
+                formData
             );
         }
-        return fromErrorToActionState(error);
+        
+        return fromErrorToActionState(error, formData);
     }
 
     redirect(ticketsPath());

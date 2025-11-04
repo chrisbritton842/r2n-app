@@ -16,12 +16,14 @@ export type ActionState = {
 
 export const toActionState = (
     status: ActionState["status"],
-    message: string
+    message: string,
+    formData?: FormData
 ): ActionState => {
     return {
         status,
         message,
         fieldErrors: {},
+        payload: formData,
         timestamp: Date.now(),
     };
 };
