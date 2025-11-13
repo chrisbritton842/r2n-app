@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 type SubmitButtonProps = {
     label?: string;
-    icon?: React.ReactElement;
+    icon?: React.ReactElement<any>;
     variant?:
         | "default"
         | "destructive"
