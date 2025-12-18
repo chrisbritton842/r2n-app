@@ -19,10 +19,11 @@ import { ticketEditPath, ticketPath } from "@/paths";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
+import { TicketWithMetadata } from "../types";
 import { TicketMoreMenu } from "./ticket-more-menu";
 
 type TicketItemProps = {
-    ticket: Ticket & { user: { username: string } };
+    ticket: TicketWithMetadata;
     isDetail?: boolean;
 };
 
