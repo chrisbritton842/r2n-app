@@ -1,10 +1,10 @@
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma";
 
 export type TicketWithMetadata = Prisma.TicketGetPayload<{
     include: {
         user: {
             select: {
-                username: true
+                username: true;
             };
         };
     };
