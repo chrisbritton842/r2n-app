@@ -1,7 +1,11 @@
 import { getTickets } from "../queries/get-tickets";
 import { TicketItem } from "./ticket-item";
 
-const TicketList = async () => {
+type TicketListProps = {
+    userId?: string;
+};
+
+const TicketList = async ({ userId }: TicketListProps) => {
     const tickets = await getTickets();
 
     return (
