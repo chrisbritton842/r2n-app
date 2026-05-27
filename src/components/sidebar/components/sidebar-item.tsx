@@ -9,13 +9,11 @@ import { NavItem } from "../types";
 
 type SidebarItemProps = {
     isOpen: boolean;
+    isActive: boolean;
     navItem: NavItem;
 };
 
-const SidebarItem = ({ isOpen, navItem }: SidebarItemProps) => {
-    const path = usePathname();
-    const isActive = path === navItem.href;
-
+const SidebarItem = ({ isOpen, isActive, navItem }: SidebarItemProps) => {
     return (
         <>
             {navItem.separator && <Separator />}
